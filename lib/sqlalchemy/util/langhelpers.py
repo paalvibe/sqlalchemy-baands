@@ -277,6 +277,8 @@ def decorator(target: Callable[..., Any]) -> Callable[[_Fn], _Fn]:
         if "__" in repr(spec[0]):
             code = (
                 """\
+from typing import Optional
+
 def %(name)s%(grouped_args)s:
     return %(target)s(%(fn)s, %(apply_pos)s)
 """
@@ -285,6 +287,8 @@ def %(name)s%(grouped_args)s:
         else:
             code = (
                 """\
+from typing import Optional
+
 def %(name)s%(grouped_args)s:
     return %(target)s(%(fn)s, %(apply_kw)s)
 """

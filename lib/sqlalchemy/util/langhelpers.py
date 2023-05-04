@@ -275,6 +275,7 @@ def decorator(target: Callable[..., Any]) -> Callable[[_Fn], _Fn]:
         # more kinds of methods that use @decorator, things may have to
         # be further improved in this area
         if "__" in repr(spec[0]):
+            # Add optional, since used in some definitions
             code = (
                 """\
 from typing import Optional
